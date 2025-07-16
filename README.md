@@ -31,7 +31,8 @@ So that I can keep track of my finances and make transactions easily.
 
 ## Code Modification 1
 
-- Added: Author name, Version, Credits
+- Modified: Author name, Version, Credits
+
 - Added: user_number for users to interact what their account is.
 - Added: Defining get_account to validate if the user interacts with the correct dictionary.
 - Added: Raise TypeError and ValueError if user inputs wrong account either string/int not in dictionary.
@@ -44,3 +45,9 @@ So that I can keep track of my finances and make transactions easily.
 - Added: class TestChatBot(TestCase):
 - Added: defined each specific test_get_account to their desired functions of what they do. Such as:
 TypeError, ValueError, Matching Valid Account.
+
+## Code Modification 3
+
+- Deleted: while loop, this assignment is only test purposes not running an app program :c
+
+- Modified: Fixes Indentation from while loop:

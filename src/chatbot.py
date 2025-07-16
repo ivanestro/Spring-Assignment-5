@@ -11,7 +11,6 @@ __author__ = "Ivan Estropigan"
 __version__ = "1.0"
 __credits__ = "COMP-1327 Faculty, W3School,freeCodeCamp, pylint.readthedocs.io"
 
-online = True
 
 ACCOUNTS = {
     123456: {
@@ -63,24 +62,35 @@ def get_account_number() -> int:
         in the dictionary.
     """
 
-    while online:
-        user_number = input("Please enter your account number: ")
+    user_number = input("Please enter your account number: ")
 
-        try:
-            account_number = int(user_number)
+    try:
+        account_number = int(user_number)
         
-        except ValueError as e:
-            raise TypeError("Account number must be an int type.") from e
+    except ValueError as e:
+        raise TypeError("Account number must be an int type.") from e
         
-        if account_number not in ACCOUNTS:
-            raise ValueError("Account number entered does not exist.")
+    if account_number not in ACCOUNTS:
+        raise ValueError("Account number entered does not exist.")
         
-        # If user did input correct account information
-        # return the account number.
-        if account_number in ACCOUNTS:
-            return account_number
+    # If user did input correct account information
+    # return the account number.
+    if account_number in ACCOUNTS:
+        return account_number
         
-        
+def get_amount() -> float:
+    """
+    Description:
+        prompts the user to input the amount deposit and return the value.
+
+    Args:
+        None
+
+    Return:
+        float: get the amount and return as float
+    """
+    user_add_input = input("Enter an amount: ")
+
 if __name__ == "__main__":
     chatbot()
 
