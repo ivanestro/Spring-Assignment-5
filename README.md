@@ -69,4 +69,10 @@ TypeError, ValueError, Matching Valid Account.
 
 - Added: src chatbot.py get_balance() so that customer are able to get their balance from account ID with the message.
 - Saving and Commiting - Update soon for Unit Testing.
+
+## Code Modification 6
+
+- Added get_balance inside src, defining the raise errors
+- Added test_get_balance according to their error type and account validation.
+
 [EOF]

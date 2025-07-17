@@ -125,21 +125,18 @@ def get_balance(account_number: int) -> str:
         TypeError: Account number should be in numerals
         ValueError: If account is not valid then it does not exist.
     """
-    try:
-        if type(account_number) is not int:
-            raise TypeError("Account number must be an int type.")
+    if type(account_number) is not int:
+        raise TypeError("Account number must be an int type.")
         
-        if account_number not in ACCOUNTS:
-            raise ValueError("Account number does not exist")
+    if account_number not in ACCOUNTS:
+        raise ValueError("Account number does not exist")
         
-        account_balance = ACCOUNTS[account_number]["balance"]
-        return f"Your current balance for account {account_number} is ${account_balance:,.2f}"
+    account_balance = ACCOUNTS[account_number]["balance"]
+    return f"Your current balance for account {account_number} is ${account_balance:,.2f}"
     
     # Catches exceptions when exceptions are caught
     # assign it as e, and return the error message.
-    except (TypeError, ValueError) as e:
-        return str(e)
-        
+
 
 if __name__ == "__main__":
     chatbot()

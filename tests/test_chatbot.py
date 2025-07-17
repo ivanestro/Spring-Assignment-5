@@ -12,7 +12,7 @@ Example:
 
 from unittest import TestCase, main
 from unittest.mock import patch
-from src.chatbot import ACCOUNTS, VALID_TASKS, get_account_number, get_amount
+from src.chatbot import ACCOUNTS, VALID_TASKS, get_account_number, get_amount, get_balance
 
 __author__ = "Ivan Estropigan"
 __version__ = "1.0"
@@ -135,5 +135,32 @@ class TestChatBot(TestCase):
         # compare the two if they match with valid_amount
         self.assertAlmostEqual(valid_amount, 1)
 
+    def test_get_balance_raise_exception_not_integer_type(self):
+        # Arrange
+        user_input = "Not an int"
+
+        # Act
+        with patch('builtins.input', return_value = user_input):
+            with self.assertRaises(TypeError) as e:
+                get_balance(user_input)
+            
+        # Assert
+        expected_message = "Account number must be an int type."
+        self.assertEqual(str(e.exception), expected_message)
+
+    def test_get_balance_raise_exception_not_valid_account(self):
+        # Arrange
+        user_input = 12345
+
+        # Act
+        with patch('builtins.input', return_value = user_input):
+            with self.assertRaises(ValueError) as e:
+                get_account_number()
+
+        # Assert
+        expected_message = "Account number entered does not exist."
+        self.assertEqual(str(e.exception), expected_message)
+
+        
 if __name__ == "main":
     main()
