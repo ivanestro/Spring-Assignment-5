@@ -30,8 +30,8 @@ So that I can keep track of my finances and make transactions easily.
 ### 2. Discuss the benefits and challenges of developing and using unit tests
 
 - The benefit of developing unit test is to make sure that we capture bugs early on and time management to help lessen the time to figure out what went wrong rather than using the old one by one debugging.
--
--
+- This can help continuous update or fixes within the code.
+- Documentation for faster readability and is easy to how and what to expect of each components.
 
 ## Code Modification 1
 

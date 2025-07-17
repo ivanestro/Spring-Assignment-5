@@ -137,6 +137,21 @@ def get_balance(account_number: int) -> str:
     # Catches exceptions when exceptions are caught
     # assign it as e, and return the error message.
 
+def make_deposit(Account_number: int, Amount: float) -> str:
+    """
+    Description:
+        User deposit when making transaction based on account_number and how much amount they want.
+
+    Args:
+        Account_number (int): The account number associates with customer amount 
+        Amount (float): The amount associated with customer account
+    Return:
+        str: Return the message as a string that you have this amount
+
+    Raise:
+
+    """
+    print("")
 
 if __name__ == "__main__":
     chatbot()
