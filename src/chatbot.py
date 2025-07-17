@@ -146,12 +146,22 @@ def make_deposit(Account_number: int, Amount: float) -> str:
         Account_number (int): The account number associates with customer amount 
         Amount (float): The amount associated with customer account
     Return:
-        str: Return the message as a string that you have this amount
+        str: Return the message as a string that you have made a deposit, amount and account number.
 
     Raise:
 
     """
-    print("")
+    if Account_number is not int:
+        raise TypeError("Account number must be an int type. ")
+    
+    if Account_number not in ACCOUNTS:
+        raise ValueError("Account number does not exist.")
+    
+    if not isinstance(Amount, (int,float)):
+        raise ValueError("Amount must be a numeric type.")
+    
+    if Amount <= 0:
+        raise ValueError("Amount must be a value greater than zero.")
 
 if __name__ == "__main__":
     chatbot()
