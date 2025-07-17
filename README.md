@@ -20,8 +20,12 @@ So that I can keep track of my finances and make transactions easily.
 ### 1. Identify any challenges or issues you encountered while writing your functions
 
 - The ValueError and raise TypeError figuring out how I can implement this code.
+
 - For unit test I have issues trying to run the code as to what I should put if I am dealing with exception messages the self.assertEquals(str()) function. I had to re-look into the powerpoint/learning_module_5_part_2.
+
 - In the Test file, I have used the self.assertAlmostEqual function basically it is to compare both values as either int or float that is at most almost equal.
+
+- src chatbot.py get_balance working with type error, value error exception as a return recalling function along with the error message. This gave me a lot of errors trying to figure out whats wrong with the try and exception.
 
 ### 2. Discuss the benefits and challenges of developing and using unit tests
 
@@ -61,4 +65,8 @@ TypeError, ValueError, Matching Valid Account.
 - Added: test_chatbot.py testing all the raise exceptions from the src chatbot.py to simulate the errors and to check the changes.
 - Added: README Struggles with a new self.assertAlmostEqual function.
 
+## Code Modification 5
+
+- Added: src chatbot.py get_balance() so that customer are able to get their balance from account ID with the message.
+- Saving and Commiting - Update soon for Unit Testing.
 [EOF]
