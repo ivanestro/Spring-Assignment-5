@@ -12,7 +12,7 @@ Example:
 
 from unittest import TestCase, main
 from unittest.mock import patch
-from src.chatbot import ACCOUNTS, VALID_TASKS, get_account_number
+from src.chatbot import ACCOUNTS, VALID_TASKS, get_account_number, get_amount
 
 __author__ = "Ivan Estropigan"
 __version__ = "1.0"
@@ -73,6 +73,67 @@ class TestChatBot(TestCase):
         # does the account number equals?
         # if so ok if not error
         self.assertEqual(account_123456, expected_account)
+
+    def test_get_amount_raise_exception_numeric(self):
+        # Arrange
+        user_input = "Not Numeric"
+
+        #Act
+        # Mock the user_input and return as user_input
+        # catches TypeError.
+        with patch('builtins.input', return_value = user_input):
+            with self.assertRaises(TypeError) as e:
+                get_amount()
+            
+
+        # Assert
+        # compare the two if they match
+        expected_message = "Amount must be a numeric type."
+        self.assertEqual(str(e.exception), expected_message)
+
+    def test_get_amount_raise_exception_zero_value(self):
+        # Arrange
+        user_input = 0
+
+        # Act
+        # Mock the user_input and return as user_input 
+        # Raise ValueError
+        with patch('builtins.input', return_value = user_input):
+            with self.assertRaises(ValueError) as e:
+                get_amount()
+
+        # Assert
+        # compare the two if they match
+        expected_message = "Amount must be a value greater than zero."
+        self.assertEqual(str(e.exception), expected_message)
+        
+    def test_get_amount_raise_exception_less_than_zero_value(self):
+        # Arrange
+        user_input = -1
+
+        #Act
+        with patch('builtins.input', return_value = user_input):
+            with self.assertRaises(ValueError) as e:
+                get_amount()
+
+        # Assert
+        # compare the two if they match
+        expected_message = "Amount must be a value greater than zero."
+        self.assertEqual(str(e.exception), expected_message)
+
+    def test_get_amount_returns_valid_amount(self):
+        # Arrange
+        user_input = 1
+
+        # Act
+        with patch('builtins.input', return_value = user_input):
+            valid_amount = get_amount()
+
+        # Assert
+        # Almost equal can accept int and float
+        # It is identically almost the same
+        # compare the two if they match with valid_amount
+        self.assertAlmostEqual(valid_amount, 1)
 
 if __name__ == "main":
     main()

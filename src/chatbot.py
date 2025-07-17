@@ -60,6 +60,8 @@ def get_account_number() -> int:
         TypeError: This raises an exception if the user input is a string
         ValueError: This raises an exception if the user input does not exist
         in the dictionary.
+    
+    Otherwise accept the account
     """
 
     user_number = input("Please enter your account number: ")
@@ -81,7 +83,7 @@ def get_account_number() -> int:
 def get_amount() -> float:
     """
     Description:
-        prompts the user to input the amount deposit and return the value.
+        prompts the user to input the amount deposit and return the value as a float
 
     Args:
         None
@@ -92,17 +94,21 @@ def get_amount() -> float:
     Raise:
         TypeError: Input must be a numeric type. 
         ValueError: If user input is 0 or less than tell the user that it should be greater than zero.
+
+    Otherwise anything greater than 0 should return the amount without any exceptions being raised.
     """
     user_add_input = input("Enter an amount: ")
 
     try:
-        amount = (user_add_input)
+        amount = float(user_add_input)
     
     except ValueError as e:
         raise TypeError("Amount must be a numeric type.") from e
     
-    if amount < 0:
-        raise ValueError("Amount must a be a value greater than zero.")
+    if amount <= 0:
+        raise ValueError("Amount must be a value greater than zero.")
+    
+    return amount
     
 
 if __name__ == "__main__":
