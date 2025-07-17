@@ -87,9 +87,23 @@ def get_amount() -> float:
         None
 
     Return:
-        float: get the amount and return as float
+        float: get the valid amount and return as float
+
+    Raise:
+        TypeError: Input must be a numeric type. 
+        ValueError: If user input is 0 or less than tell the user that it should be greater than zero.
     """
     user_add_input = input("Enter an amount: ")
+
+    try:
+        amount = (user_add_input)
+    
+    except ValueError as e:
+        raise TypeError("Amount must be a numeric type.") from e
+    
+    if amount < 0:
+        raise ValueError("Amount must a be a value greater than zero.")
+    
 
 if __name__ == "__main__":
     chatbot()
